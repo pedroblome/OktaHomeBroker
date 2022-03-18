@@ -84,7 +84,7 @@
       >
         <table id="balanceStock" class="w-full table-auto">
           <thead class="bg-gray-300 py-5">
-            <tr v-for="stock in filteredStocks" :key="stock.stock_id">
+            <tr v-for="stock in filteredStocks" :key="stock.stockId">
               <td
                 style="font-size: 17px"
                 class="
@@ -96,7 +96,7 @@
                   tracking-wider
                 "
               >
-                {{ stock.id_stock }}
+                {{ stock.idStock }}
               </td>
               <td
                 style="font-size: 17px; position: relative; left: 25px"
@@ -109,9 +109,9 @@
                   tracking-wider
                 "
               >
-                {{ stock.stock_symbol }}
+                {{ stock.stockSymbol }}
                 <span style="font-size: 12px; color: gray">{{
-                  stock.stock_name
+                  stock.stockName
                 }}</span>
               </td>
               <td
@@ -120,9 +120,8 @@
                   px-6
                   py-3
                   text-left text-xs
-                  font-large
-                  text-black-700
-                  tracking-wider
+                  font-largeame = nome;
+      this.stockS
                 "
               >
                 {{ stock.volume }} un.
@@ -291,7 +290,7 @@
       <div class="w-full overflow-y-auto" style="height: 180px; padding-top: 20mm">
         <table id="userOrders" class="w-full table-auto">
           <thead class="bg-gray-300 py-5">
-            <tr v-for="stock in filteredOrders" :key="stock.stock_id">
+            <tr v-for="stock in filteredOrders" :key="stock.stockId">
               <td
                 style="font-size: 17px"
                 class="
@@ -303,7 +302,7 @@
                   tracking-wider
                 "
               >
-                {{ stock.id_stock }}
+                {{ stock.idStock }}
               </td>
               <td
                 style="font-size: 17px"
@@ -316,9 +315,9 @@
                   tracking-wider
                 "
               >
-                {{ stock.stock_name }}
+                {{ stock.stockName }}
                 <span style="font-size: 12px; color: gray">{{
-                  stock.stock_symbol
+                  stock.stockSymbol
                 }}</span>
               </td>
               <td
@@ -332,7 +331,7 @@
                   tracking-wider
                 "
               >
-                {{ stock.created_on }}
+                {{ stock.createdOn }}
               </td>
               <td
                 style="font-size: 17px; relative;position:relative; left:-68px"
@@ -371,7 +370,7 @@
                   tracking-wider
                 "
               >
-                {{ stock.updated_on }} un.
+                {{ stock.updatedOn }} un.
               </td>
               <td
                 style="font-size: 17px; position: relative; left: -60px"
@@ -398,7 +397,7 @@
                   tracking-wider
                 "
               >
-                {{ stock.remaing_volume }} un.
+                {{ stock.remaingVolume }} un.
               </td>
               <td>
                 <button
@@ -437,7 +436,7 @@ export default {
       user: [],
       userOrder: [],
       filteredOrders: [],
-      order_id: "",
+      orderId: "",
     };
   },
 
@@ -459,7 +458,7 @@ export default {
       //iduser = 1 pq n fiz o metodo de verificar qual usuario esta logado no momento. tirar esta duvida
       //o mais rapido possivel.
       const response = await axios.get(
-        "http://localhost:8088/user_stock_balance/user/1",
+        "http://localhost:8088/userStock/user/1",
         {
           headers: { Authorization: "Bearer " + this.$auth.getAccessToken() },
         }
@@ -471,7 +470,7 @@ export default {
     async getInfoUser() {
       //iduser = 1 pq n fiz o metodo de verificar qual usuario esta logado no momento. tirar esta duvida
       //o mais rapido possivel.
-      const response = await axios.get("http://localhost:8088/users/1", {
+      const response = await axios.get("http://localhost:8088/user/1", {
         headers: { Authorization: "Bearer " + this.$auth.getAccessToken() },
       });
       console.log(response.data);
@@ -479,7 +478,7 @@ export default {
     },
     async getUserOrder() {
       const response = await axios.get(
-        "http://localhost:8088/users_order/byUser/1",
+        "http://localhost:8088/userOrder/byUser/1",
         {
           headers: { Authorization: "Bearer " + this.$auth.getAccessToken() },
         }
@@ -492,7 +491,7 @@ export default {
 
     async closeOrder(id) {
       console.log(id);
-      const url = "http://localhost:8088/users_order/closeOrder/" + id;
+      const url = "http://localhost:8088/userOrder/closeOrder/" + id;
       await fetch(url, {
         method: "PUT",
         headers: {
@@ -518,10 +517,9 @@ export default {
     searchStock() {
       this.filteredStocks = this.stocks.filter(
         (stock) =>
-          stock.stock_name
-            .toLowerCase()
+          stock.toLowerCase()
             .includes(this.textSearch.toLowerCase()) ||
-          stock.stock_symbol
+          stock.stockSymbol
             .toLowerCase()
             .includes(this.textSearch.toLowerCase())
       );
@@ -529,10 +527,10 @@ export default {
     searchOrders() {
       this.filteredOrders = this.userOrder.filter(
         (userOrder) =>
-          userOrder.stock_name
+          userOrder.stockName
             .toLowerCase()
             .includes(this.textSearchOrder.toLowerCase()) ||
-          userOrder.stock_symbol
+          userOrder.stockSymbol
             .toLowerCase()
             .includes(this.textSearchOrder.toLowerCase())
       );

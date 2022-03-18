@@ -96,13 +96,13 @@
                 <tr class="text-gray-900">
                   Name:
                   {{
-                    stock_name
+                    stockName
                   }}
                 </tr>
                 <tr class="text-gray-900">
                   Symbol:
                   {{
-                    stock_symbol
+                    stockSymbol
                   }}
                 </tr>
                 <tr class="text-gray-900">
@@ -402,7 +402,7 @@
                     tracking-wider
                   "
                 >
-                  {{ stock.stock_name }}
+                  {{ stock.stockName }}
                 </td>
                 <td
                   style="position: sticky; left: 0px"
@@ -417,7 +417,7 @@
                     tracking-wider
                   "
                 >
-                  {{ stock.stock_symbol }}
+                  {{ stock.stockSymbol }}
                 </td>
                 <span
                   style="position: sticky; left: 350px"
@@ -432,12 +432,12 @@
                     tracking-wider
                   "
                 >
-                  <label v-if="stock.ask_min != null"
-                    >U${{ stock.ask_min.toFixed(2) }}</label
+                  <label v-if="stock.askMin != null"
+                    >U${{ stock.askMin.toFixed(2) }}</label
                   >
                   <label
                     style="font-size: 9px; color: #dbf9fc"
-                    v-if="stock.ask_min == null"
+                    v-if="stock.askMin == null"
                     >no orders</label
                   >
                 </span>
@@ -454,12 +454,12 @@
                     tracking-wider
                   "
                 >
-                  <label v-if="stock.ask_max != null"
-                    >U${{ stock.ask_max.toFixed(2) }}</label
+                  <label v-if="stock.askMax != null"
+                    >U${{ stock.askMax.toFixed(2) }}</label
                   >
                   <label
                     style="font-size: 9px; color: #dbf9fc"
-                    v-if="stock.ask_max == null"
+                    v-if="stock.askMax == null"
                     >no orders</label
                   >
                 </td>
@@ -476,12 +476,12 @@
                     tracking-wider
                   "
                 >
-                  <label v-if="stock.bid_min != null"
-                    >U${{ stock.bid_min.toFixed(2) }}</label
+                  <label v-if="stock.bidMin != null"
+                    >U${{ stock.bidMin.toFixed(2) }}</label
                   >
                   <label
                     style="font-size: 9px; color: #dbf9fc"
-                    v-if="stock.bid_min == null"
+                    v-if="stock.bidMin == null"
                     >no orders</label
                   >
                 </td>
@@ -498,12 +498,12 @@
                     tracking-wider
                   "
                 >
-                  <label v-if="stock.bid_max != null"
-                    >U${{ stock.bid_max.toFixed(2) }}</label
+                  <label v-if="stock.bidMax != null"
+                    >U${{ stock.bidMax.toFixed(2) }}</label
                   >
                   <label
                     style="font-size: 9px; color: #dbf9fc"
-                    v-if="stock.bid_max == null"
+                    v-if="stock.bidMax == null"
                     >no orders</label
                   >
                 </td>
@@ -511,7 +511,7 @@
                   <button
                     style="position: sticky; left: 1050px"
                     @click="
-                      openOrder(stock.id, stock.stock_name, stock.stock_symbol)
+                      openOrder(stock.id, stock.stockName, stock.stockSymbol)
                     "
                     class="
                       block
@@ -562,8 +562,8 @@ export default {
       filteredStocks: [],
       textSearch: "",
       openModal: false,
-      stock_name: "",
-      stock_symbol: "",
+      stockName: "",
+      stockSymbol: "",
       id: "",
       volume: "",
       price: "",
@@ -596,18 +596,18 @@ export default {
     async openOrder(id, nome, symbol) {
       this.openModal = !this.openModal;
       console.log(id, nome, symbol);
-      this.stock_name = nome;
-      this.stock_symbol = symbol;
+      this.stockName = nome;
+      this.stockSymbol = symbol;
       this.id = id;
     },
     async postOrdeStock() {
       const body = {
-        id_user: 1,
-        id_stock: this.id,
+        idUser: 1,
+        idStock: this.id,
         price: this.price,
         status: 1,
-        stock_name: this.stock_name,
-        stock_symbol: this.stock_symbol,
+        stockName: this.stockName,
+        stockSymbol: this.stockSymbol,
         type: this.picked,
         volume: this.volume,
       };
@@ -615,7 +615,7 @@ export default {
         var now = new Date();
 
         const response = await axios.post(
-          "http://localhost:8088/users_order",
+          "http://localhost:8088/userOrder/",
           body,
           {
             headers: { Authorization: "Bearer " + this.$auth.getAccessToken() },
@@ -635,10 +635,10 @@ export default {
     searchStock() {
       this.filteredStocks = this.stocks.filter(
         (stock) =>
-          stock.stock_name
+          stock.stockName
             .toLowerCase()
             .includes(this.textSearch.toLowerCase()) ||
-          stock.stock_symbol
+          stock.stockSymbol
             .toLowerCase()
             .includes(this.textSearch.toLowerCase())
       );

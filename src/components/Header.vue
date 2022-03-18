@@ -184,7 +184,7 @@ export default {
       this.claims = await this.$auth.getUser();
       //iduser = 1 pq n fiz o metodo de verificar qual usuario esta logado no momento. tirar esta duvida
       //o mais rapido possivel.
-      const response = await axios.get("http://localhost:8088/users/1", {
+      const response = await axios.get("http://localhost:8088/user/1", {
         headers: { Authorization: "Bearer " + this.$auth.getAccessToken() },
       });
       console.log(this.claims.name)
@@ -194,7 +194,7 @@ export default {
       this.email = this.claims.email
 
       this.user = response.data
-      this.dollarBalance=this.user.dollar_balance
+      this.dollarBalance=this.user.dollarBalance
     
 
     },
@@ -212,7 +212,7 @@ export default {
         var now = new Date();
 
         const response = await axios.put(
-          "http://localhost:8088/users/deposit",
+          "http://localhost:8088/user/deposit",
           body,
           {
             headers: { Authorization: "Bearer " + this.$auth.getAccessToken() },
