@@ -5,7 +5,6 @@ import OktaVue from '@okta/okta-vue'
 import { oktaAuth } from './okta';
 import "@/assets/tailwind.css";
 import "./assets/tailwind.css";
-import './assets/tailwind.css'
 
 createApp(App)
     .use(router)
