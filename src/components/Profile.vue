@@ -23,58 +23,56 @@
         class="bg-blue-200 hover:bg-green-200"
       />
       <div>
-        <table id="balanceStock" class="w-full table-auto " style="widht: 200px">
+        <table id="balanceStock" class="w-full table-auto" style="widht: 200px">
           <caption
             style="text-align: center; font-size: 29px; background-color: gray"
           >
             User Stock Balance
           </caption>
-          <thead class="bg-gray-600 py-5">
-            <tr>
-              <th
-                scope="col"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-medium
-                  text-grey-500
-                  uppercase
-                  tracking-wider
-                "
-              >
-                Id
-              </th>
-              <th
-                scope="col"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-medium
-                  text-grey-500
-                  uppercase
-                  tracking-wider
-                "
-              >
-                Stock
-              </th>
-              <th
-                scope="col"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-medium
-                  text-grey-500
-                  uppercase
-                  tracking-wider
-                "
-              >
-                Volume
-              </th>
-            </tr>
-          </thead>
+          <tr>
+            <th
+              scope="col"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-medium
+                text-grey-500
+                uppercase
+                tracking-wider
+              "
+            >
+              Id
+            </th>
+            <th
+              scope="col"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-medium
+                text-grey-500
+                uppercase
+                tracking-wider
+              "
+            >
+              Stock
+            </th>
+            <th
+              scope="col"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-medium
+                text-grey-500
+                uppercase
+                tracking-wider
+              "
+            >
+              Volume
+            </th>
+          </tr>
         </table>
       </div>
       <div
@@ -83,51 +81,52 @@
         style="height: 120px"
       >
         <table id="balanceStock" class="w-full table-auto">
-          <thead class="bg-gray-300 py-5">
-            <tr v-for="stock in filteredStocks" :key="stock.stockId">
-              <td
-                style="font-size: 17px"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-large
-                  text-black-700
-                  tracking-wider
-                "
-              >
-                {{ stock.idStock }}
-              </td>
-              <td
-                style="font-size: 17px; position: relative; left: 25px"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-large
-                  text-black-700
-                  tracking-wider
-                "
-              >
-                {{ stock.stockSymbol }}
-                <span style="font-size: 12px; color: gray">{{
-                  stock.stockName
-                }}</span>
-              </td>
-              <td
-                style="font-size: 17px; position: relative; left: -155px"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-largeame = nome;
-      this.stockS
-                "
-              >
-                {{ stock.volume }} un.
-              </td>
-            </tr>
-          </thead>
+          <caption></caption>
+          <tr v-for="stock in filteredStocks" :key="stock.stockId">
+            <th
+              style="font-size: 17px"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-large
+                text-black-700
+                tracking-wider
+              "
+            >
+              {{ stock.idStock }}
+            </th>
+            <td
+              style="font-size: 17px; position: relative; left: 25px"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-large
+                text-black-700
+                tracking-wider
+              "
+            >
+              {{ stock.stockSymbol }}
+              <span style="font-size: 12px; color: gray">{{
+                stock.stockName
+              }}</span>
+            </td>
+            <td
+              style="font-size: 17px; position: relative; left: -155px"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-largeame
+                =
+                nome;
+                this.stockS
+              "
+            >
+              {{ stock.volume }} un.
+            </td>
+          </tr>
         </table>
       </div>
     </div>
@@ -139,9 +138,8 @@
         border-b border-red-10
         sm:rounded-lg
         bg-gray-300
-        
       "
-      style="margin-top:20px"
+      style="margin-top: 20px"
     >
       <input
         type="text"
@@ -160,265 +158,265 @@
           >
             Users Orders Open
           </caption>
-          <thead class="bg-gray-600 py-4">
-            <tr>
-              <th
-                style="width: 13px"
-                scope="col"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-medium
-                  text-grey-500
-                  uppercase
-                  tracking-wider
-                "
-              >
-                Id
-              </th>
-              <th
-                style="width: 43px"
-                scope="col"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-medium
-                  text-grey-500
-                  uppercase
-                  tracking-wider
-                "
-              >
-                Stock
-              </th>
-              <th
-                style="width: 43px"
-                scope="col"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-medium
-                  text-grey-500
-                  uppercase
-                  tracking-wider
-                "
-              >
-                Created on
-              </th>
-              <th
-                style="width: 43px"
-                scope="col"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-medium
-                  text-grey-500
-                  uppercase
-                  tracking-wider
-                "
-              >
-                Volume
-              </th>
-              <th
-                style="width: 40px; position: relative; left: -60px"
-                scope="col"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-medium
-                  text-grey-500
-                  uppercase
-                  tracking-wider
-                "
-              >
-                Price
-              </th>
-              <th
-                style="width: 40px; position: relative; left: -50px"
-                scope="col"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-medium
-                  text-grey-500
-                  uppercase
-                  tracking-wider
-                "
-              >
-                Updated on
-              </th>
-              <th
-                style="width: 40px; position: relative; left: -40px"
-                scope="col"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-medium
-                  text-grey-500
-                  uppercase
-                  tracking-wider
-                "
-              >
-                Type
-              </th>
-              <th
-                style="width: 43px; position: relative; left: -65px"
-                scope="col"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-medium
-                  text-grey-500
-                  uppercase
-                  tracking-wider
-                "
-              >
-                Remaing Volume
-              </th>
-            </tr>
-          </thead>
+          <tr>
+            <th
+              style="width: 13px"
+              scope="col"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-medium
+                text-grey-500
+                uppercase
+                tracking-wider
+              "
+            >
+              Id
+            </th>
+            <th
+              style="width: 43px"
+              scope="col"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-medium
+                text-grey-500
+                uppercase
+                tracking-wider
+              "
+            >
+              Stock
+            </th>
+            <th
+              style="width: 43px"
+              scope="col"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-medium
+                text-grey-500
+                uppercase
+                tracking-wider
+              "
+            >
+              Created on
+            </th>
+            <th
+              style="width: 43px"
+              scope="col"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-medium
+                text-grey-500
+                uppercase
+                tracking-wider
+              "
+            >
+              Volume
+            </th>
+            <th
+              style="width: 40px; position: relative; left: -60px"
+              scope="col"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-medium
+                text-grey-500
+                uppercase
+                tracking-wider
+              "
+            >
+              Price
+            </th>
+            <th
+              style="width: 40px; position: relative; left: -50px"
+              scope="col"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-medium
+                text-grey-500
+                uppercase
+                tracking-wider
+              "
+            >
+              Updated on
+            </th>
+            <th
+              style="width: 40px; position: relative; left: -40px"
+              scope="col"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-medium
+                text-grey-500
+                uppercase
+                tracking-wider
+              "
+            >
+              Type
+            </th>
+            <th
+              style="width: 43px; position: relative; left: -65px"
+              scope="col"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-medium
+                text-grey-500
+                uppercase
+                tracking-wider
+              "
+            >
+              Remaing Volume
+            </th>
+          </tr>
         </table>
       </div>
-      
-      <div class="w-full overflow-y-auto" style="height: 180px; padding-top: 20mm">
+
+      <div
+        class="w-full overflow-y-auto"
+        style="height: 180px; padding-top: 0mm"
+      >
         <table id="userOrders" class="w-full table-auto">
-          <thead class="bg-gray-300 py-5">
-            <tr v-for="stock in filteredOrders" :key="stock.stockId">
-              <td
-                style="font-size: 17px"
+          <caption></caption>
+          <tr v-for="stock in filteredOrders" :key="stock.stockId">
+            <th
+              style="font-size: 17px"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-large
+                text-black-700
+                tracking-wider
+              "
+            >
+              {{ stock.idStock }}
+            </th>
+            <td
+              style="font-size: 17px"
+              class="
+                px-6
+                py-3
+                text-left text-xs
+                font-large
+                text-black-700
+                tracking-wider
+              "
+            >
+              {{ stock.stockName }}
+              <span style="font-size: 12px; color: gray">{{
+                stock.stockSymbol
+              }}</span>
+            </td>
+            <td
+              style="font-size: 12px; position: relative; left: -48px"
+              class="
+                px-6
+                py-3
+                text-right text-xs
+                font-large
+                text-black-700
+                tracking-wider
+              "
+            >
+              {{ stock.createdOn }}
+            </td>
+            <td
+              style="font-size: 17px; relative;position:relative; left:-68px"
+              class="
+                px-6
+                py-3
+                text-right text-xs
+                font-large
+                text-black-700
+                tracking-wider
+              "
+            >
+              {{ stock.volume }} un.
+            </td>
+            <td
+              style="font-size: 17px; position: relative; left: -53px"
+              class="
+                px-6
+                py-3
+                text-right text-xs
+                font-large
+                text-black-700
+                tracking-wider
+              "
+            >
+              U${{ stock.price.toFixed(2) }}
+            </td>
+            <td
+              style="font-size: 12px; position: relative; left: -60px"
+              class="
+                px-6
+                py-3
+                text-right text-xs
+                font-large
+                text-black-700
+                tracking-wider
+              "
+            >
+              {{ stock.updatedOn }} un.
+            </td>
+            <td
+              style="font-size: 17px; position: relative; left: -60px"
+              class="
+                px-6
+                py-3
+                text-right text-xs
+                font-large
+                text-black-700
+                tracking-wider
+              "
+            >
+              <label v-if="stock.type == 1">buy</label>
+              <label v-if="stock.type == 0">sell</label>
+            </td>
+            <td
+              style="font-size: 17px; position: relative; left: -60px"
+              class="
+                px-6
+                py-3
+                text-right text-xs
+                font-large
+                text-black-700
+                tracking-wider
+              "
+            >
+              {{ stock.remaingVolume }} un.
+            </td>
+            <td>
+              <button
+                @click="closeOrder(stock.id)"
+                style="background-color: red"
                 class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-large
-                  text-black-700
-                  tracking-wider
+                  block
+                  text-white
+                  bg-blue-500
+                  hover:bg-blue-800
+                  rounded-lg
+                  text-m
+                  p-1.5
                 "
+                type="button"
               >
-                {{ stock.idStock }}
-              </td>
-              <td
-                style="font-size: 17px"
-                class="
-                  px-6
-                  py-3
-                  text-left text-xs
-                  font-large
-                  text-black-700
-                  tracking-wider
-                "
-              >
-                {{ stock.stockName }}
-                <span style="font-size: 12px; color: gray">{{
-                  stock.stockSymbol
-                }}</span>
-              </td>
-              <td
-                style="font-size: 12px; position: relative; left: -48px"
-                class="
-                  px-6
-                  py-3
-                  text-right text-xs
-                  font-large
-                  text-black-700
-                  tracking-wider
-                "
-              >
-                {{ stock.createdOn }}
-              </td>
-              <td
-                style="font-size: 17px; relative;position:relative; left:-68px"
-                class="
-                  px-6
-                  py-3
-                  text-right text-xs
-                  font-large
-                  text-black-700
-                  tracking-wider
-                "
-              >
-                {{ stock.volume }} un.
-              </td>
-              <td
-                style="font-size: 17px; position: relative; left: -53px"
-                class="
-                  px-6
-                  py-3
-                  text-right text-xs
-                  font-large
-                  text-black-700
-                  tracking-wider
-                "
-              >
-                U${{ stock.price.toFixed(2) }}
-              </td>
-              <td
-                style="font-size: 12px; position: relative; left: -60px"
-                class="
-                  px-6
-                  py-3
-                  text-right text-xs
-                  font-large
-                  text-black-700
-                  tracking-wider
-                "
-              >
-                {{ stock.updatedOn }} un.
-              </td>
-              <td
-                style="font-size: 17px; position: relative; left: -60px"
-                class="
-                  px-6
-                  py-3
-                  text-right text-xs
-                  font-large
-                  text-black-700
-                  tracking-wider
-                "
-              >
-                <label v-if="stock.type == 1">buy</label>
-                <label v-if="stock.type == 0">sell</label>
-              </td>
-              <td
-                style="font-size: 17px; position: relative; left: -60px"
-                class="
-                  px-6
-                  py-3
-                  text-right text-xs
-                  font-large
-                  text-black-700
-                  tracking-wider
-                "
-              >
-                {{ stock.remaingVolume }} un.
-              </td>
-              <td>
-                <button
-                  @click="closeOrder(stock.id)"
-                  style="background-color: red"
-                  class="
-                    block
-                    text-white
-                    bg-blue-500
-                    hover:bg-blue-800
-                    rounded-lg
-                    text-m
-                    p-1.5
-                  "
-                  type="button"
-                >
-                  Cancel
-                </button>
-              </td>
-            </tr>
-          </thead>
+                Cancel
+              </button>
+            </td>
+          </tr>
         </table>
       </div>
     </div>
@@ -500,15 +498,11 @@ export default {
           Authorization: "Bearer " + this.$auth.getAccessToken(),
         },
       })
-      
         .then((response) => {
-        
-      
-            console.log(response);
-            window.alert("Order Deleter with sucess");
-            console.log("ta chamando a função ao menos");
-            console.log(response.data);
-          
+          console.log(response);
+          window.alert("Order Deleter with sucess");
+          console.log("ta chamando a função ao menos");
+          console.log(response.data);
         })
         .catch(() => {
           console.log("error");
@@ -517,8 +511,7 @@ export default {
     searchStock() {
       this.filteredStocks = this.stocks.filter(
         (stock) =>
-          stock.toLowerCase()
-            .includes(this.textSearch.toLowerCase()) ||
+          stock.toLowerCase().includes(this.textSearch.toLowerCase()) ||
           stock.stockSymbol
             .toLowerCase()
             .includes(this.textSearch.toLowerCase())

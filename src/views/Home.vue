@@ -253,284 +253,281 @@
             >
               Home Broker
             </caption>
-            <thead class="bg--200 py-5">
-              <tr class="bg-gray-500">
-                <th
-                  class="
-                    px-6
-                    py-3
-                    text-left text-xs
-                    font-medium
-                    uppercase
-                    tracking-wider
-                  "
-                >
-                  Stock id
-                </th>
-                <th
-                  style="position: relative; left: -5px"
-                  class="
-                    px-6
-                    py-3
-                    text-left text-xs
-                    font-medium
-                    uppercase
-                    tracking-wider
-                  "
-                >
-                  Stock name
-                </th>
-                <th
-                  style="position: relative; left: -5px"
-                  class="
-                    px-6
-                    py-3
-                    text-left text-xs
-                    font-medium
-                    uppercase
-                    tracking-wider
-                  "
-                >
-                  Stock Symbol
-                </th>
-                <th
-                  class="
-                    px-6
-                    py-3
-                    text-left text-xs
-                    font-medium
-                    uppercase
-                    tracking-wider
-                  "
-                >
-                  AskMin PRICE
-                </th>
-                <th
-                  class="
-                    px-6
-                    py-3
-                    text-left text-xs
-                    font-medium
-                    uppercase
-                    tracking-wider
-                  "
-                >
-                  AskMax PRICE
-                </th>
-                <th
-                  class="
-                    px-6
-                    py-3
-                    text-left text-xs
-                    font-medium
-                    uppercase
-                    tracking-wider
-                  "
-                >
-                  BidMin PRICE
-                </th>
-                <th
-                  class="
-                    px-6
-                    py-3
-                    text-left text-xs
-                    font-medium
-                    uppercase
-                    tracking-wider
-                  "
-                >
-                  BidMax PRICE
-                </th>
-                <th
-                  class="
-                    px-6
-                    py-3
-                    text-left text-xs
-                    font-medium
-                    uppercase
-                    tracking-wider
-                  "
-                >
-                  Order/ Graphic
-                </th>
-              </tr>
-            </thead>
+
+            <tr class="bg-gray-500">
+              <th
+                class="
+                  px-6
+                  py-3
+                  text-left text-xs
+                  font-medium
+                  uppercase
+                  tracking-wider
+                "
+              >
+                Stock id
+              </th>
+              <th
+                style="position: relative; left: -5px"
+                class="
+                  px-6
+                  py-3
+                  text-left text-xs
+                  font-medium
+                  uppercase
+                  tracking-wider
+                "
+              >
+                Stock name
+              </th>
+              <th
+                style="position: relative; left: -5px"
+                class="
+                  px-6
+                  py-3
+                  text-left text-xs
+                  font-medium
+                  uppercase
+                  tracking-wider
+                "
+              >
+                Stock Symbol
+              </th>
+              <th
+                class="
+                  px-6
+                  py-3
+                  text-left text-xs
+                  font-medium
+                  uppercase
+                  tracking-wider
+                "
+              >
+                AskMin PRICE
+              </th>
+              <th
+                class="
+                  px-6
+                  py-3
+                  text-left text-xs
+                  font-medium
+                  uppercase
+                  tracking-wider
+                "
+              >
+                AskMax PRICE
+              </th>
+              <th
+                class="
+                  px-6
+                  py-3
+                  text-left text-xs
+                  font-medium
+                  uppercase
+                  tracking-wider
+                "
+              >
+                BidMin PRICE
+              </th>
+              <th
+                class="
+                  px-6
+                  py-3
+                  text-left text-xs
+                  font-medium
+                  uppercase
+                  tracking-wider
+                "
+              >
+                BidMax PRICE
+              </th>
+              <th
+                class="
+                  px-6
+                  py-3
+                  text-left text-xs
+                  font-medium
+                  uppercase
+                  tracking-wider
+                "
+              >
+                Order/ Graphic
+              </th>
+            </tr>
           </table>
         </div>
         <div class="w-full overflow-y-auto" style="height: 440px">
-          <table id = "tableStockValues" class="w-full table-auto">
+          <table id="tableStockValues" class="w-full table-auto">
             <caption></caption>
-            <thead class="bg-gray-300 py-5">
-              <tr
-                class="overflow-y-auto"
-                v-for="stock in filteredStocks"
-                :key="stock.stock_id"
+            <tr
+              class="overflow-y-auto"
+              v-for="stock in filteredStocks"
+              :key="stock.idStock"
+            >
+              <td
+                style="position: sticky"
+                class="
+                  text-center
+                  px-6
+                  py-3
+                  text-xs
+                  font-large
+                  text-black-700
+                  uppercase
+                  tracking-wider
+                "
               >
-                <td
-                  style="position: sticky"
-                  class="
-                    text-center
-                    px-6
-                    py-3
-                    text-xs
-                    font-large
-                    text-black-700
-                    uppercase
-                    tracking-wider
-                  "
+                {{ stock.id }}
+              </td>
+              <td
+                style="position: sticky; left: 120px; width: 50px"
+                class="
+                  px-6
+                  py-3
+                  text-left text-xs
+                  font-large
+                  text-black-700
+                  uppercase
+                  tracking-wider
+                "
+              >
+                {{ stock.stockName }}
+              </td>
+              <td
+                style="position: sticky; left: 0px"
+                class="
+                  px-6
+                  py-3
+                  text-left text-xs
+                  font-large
+                  text-black-700
+                  uppercase
+                  tracking-wider
+                "
+              >
+                {{ stock.stockSymbol }}
+              </td>
+              <span
+                style="position: sticky; left: 350px"
+                class="
+                  px-6
+                  py-3
+                  text-left text-xs
+                  font-large
+                  text-black-700
+                  uppercase
+                  tracking-wider
+                "
+              >
+                <label v-if="stock.askMin != null"
+                  >U${{ stock.askMin.toFixed(2) }}</label
                 >
-                  {{ stock.id }}
-                </td>
-                <td
-                  style="position: sticky; left: 120px; width: 50px"
-                  class="
-                    px-6
-                    py-3
-                    text-left text-xs
-                    font-large
-                    text-black-700
-                    uppercase
-                    tracking-wider
-                  "
+                <label
+                  style="font-size: 9px; color: #dbf9fc"
+                  v-if="stock.askMin == null"
+                  >no orders</label
                 >
-                  {{ stock.stockName }}
-                </td>
-                <td
-                  style="position: sticky; left: 0px"
-                  class="
-                    px-6
-                    py-3
-                    text-left text-xs
-                    font-large
-                    text-black-700
-                    uppercase
-                    tracking-wider
-                  "
+              </span>
+              <td
+                style="position: sticky; left: 570px"
+                class="
+                  px-6
+                  py-3
+                  text-left text-xs
+                  font-large
+                  text-black-700
+                  uppercase
+                  tracking-wider
+                "
+              >
+                <label v-if="stock.askMax != null"
+                  >U${{ stock.askMax.toFixed(2) }}</label
                 >
-                  {{ stock.stockSymbol }}
-                </td>
-                <span
-                  style="position: sticky; left: 350px"
-                  class="
-                    px-6
-                    py-3
-                    text-left text-xs
-                    font-large
-                    text-black-700
-                    uppercase
-                    tracking-wider
-                  "
+                <label
+                  style="font-size: 9px; color: #dbf9fc"
+                  v-if="stock.askMax == null"
+                  >no orders</label
                 >
-                  <label v-if="stock.askMin != null"
-                    >U${{ stock.askMin.toFixed(2) }}</label
-                  >
-                  <label
-                    style="font-size: 9px; color: #dbf9fc"
-                    v-if="stock.askMin == null"
-                    >no orders</label
-                  >
-                </span>
-                <td
-                  style="position: sticky; left: 570px"
-                  class="
-                    px-6
-                    py-3
-                    text-left text-xs
-                    font-large
-                    text-black-700
-                    uppercase
-                    tracking-wider
-                  "
+              </td>
+              <td
+                style="position: sticky; left: 730px"
+                class="
+                  px-6
+                  py-3
+                  text-left text-xs
+                  font-large
+                  text-black-700
+                  uppercase
+                  tracking-wider
+                "
+              >
+                <label v-if="stock.bidMin != null"
+                  >U${{ stock.bidMin.toFixed(2) }}</label
                 >
-                  <label v-if="stock.askMax != null"
-                    >U${{ stock.askMax.toFixed(2) }}</label
-                  >
-                  <label
-                    style="font-size: 9px; color: #dbf9fc"
-                    v-if="stock.askMax == null"
-                    >no orders</label
-                  >
-                </td>
-                <td
-                  style="position: sticky; left: 730px"
-                  class="
-                    px-6
-                    py-3
-                    text-left text-xs
-                    font-large
-                    text-black-700
-                    uppercase
-                    tracking-wider
-                  "
+                <label
+                  style="font-size: 9px; color: #dbf9fc"
+                  v-if="stock.bidMin == null"
+                  >no orders</label
                 >
-                  <label v-if="stock.bidMin != null"
-                    >U${{ stock.bidMin.toFixed(2) }}</label
-                  >
-                  <label
-                    style="font-size: 9px; color: #dbf9fc"
-                    v-if="stock.bidMin == null"
-                    >no orders</label
-                  >
-                </td>
-                <td
-                  style="position: sticky; left: 882px"
-                  class="
-                    px-6
-                    py-3
-                    text-left text-xs
-                    font-large
-                    text-black-700
-                    uppercase
-                    tracking-wider
-                  "
+              </td>
+              <td
+                style="position: sticky; left: 882px"
+                class="
+                  px-6
+                  py-3
+                  text-left text-xs
+                  font-large
+                  text-black-700
+                  uppercase
+                  tracking-wider
+                "
+              >
+                <label v-if="stock.bidMax != null"
+                  >U${{ stock.bidMax.toFixed(2) }}</label
                 >
-                  <label v-if="stock.bidMax != null"
-                    >U${{ stock.bidMax.toFixed(2) }}</label
-                  >
-                  <label
-                    style="font-size: 9px; color: #dbf9fc"
-                    v-if="stock.bidMax == null"
-                    >no orders</label
-                  >
-                </td>
-                <th class="flex padding=10px">
-                  <button
-                    style="position: sticky; left: 1050px"
-                    @click="
-                      openOrder(stock.id, stock.stockName, stock.stockSymbol)
-                    "
-                    class="
-                      block
-                      text-white
-                      bg-blue-500
-                      hover:bg-blue-800
-                      rounded-lg
-                      text-m
-                      p-1.5
-                    "
-                    type="button"
-                  >
-                    Order
-                  </button>
-                  &nbsp; &nbsp;
-                  <button
-                    style="position: sticky; left: 1115px"
-                    class="
-                      block
-                      text-white
-                      bg-green-500
-                      hover:bg-green-800
-                      rounded-lg
-                      text-m
-                      p-1.5
-                    "
-                    type="button"
-                  >
-                    Graphic
-                  </button>
-                </th>
-              </tr>
-            </thead>
+                <label
+                  style="font-size: 9px; color: #dbf9fc"
+                  v-if="stock.bidMax == null"
+                  >no orders</label
+                >
+              </td>
+              <th class="flex padding=10px">
+                <button
+                  style="position: sticky; left: 1050px"
+                  @click="
+                    openOrder(stock.id, stock.stockName, stock.stockSymbol)
+                  "
+                  class="
+                    block
+                    text-white
+                    bg-blue-500
+                    hover:bg-blue-800
+                    rounded-lg
+                    text-m
+                    p-1.5
+                  "
+                  type="button"
+                >
+                  Order
+                </button>
+                &nbsp; &nbsp;
+                <button
+                  style="position: sticky; left: 1115px"
+                  class="
+                    block
+                    text-white
+                    bg-green-500
+                    hover:bg-green-800
+                    rounded-lg
+                    text-m
+                    p-1.5
+                  "
+                  type="button"
+                >
+                  Graphic
+                </button>
+              </th>
+            </tr>
           </table>
         </div>
       </div>
@@ -597,9 +594,8 @@ export default {
         type: this.picked,
         volume: this.volume,
       };
+      var now = new Date();
       try {
-        var now = new Date();
-
         const response = await axios.post(
           "http://localhost:8088/userOrder/",
           body,
