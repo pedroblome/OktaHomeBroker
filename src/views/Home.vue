@@ -243,7 +243,7 @@
           class="bg-gray-300 hover:bg-green-200"
         />
         <div class="bg-gray-500">
-          <table id="tableStock" class="w-full table-auto" style="widht: 200px">
+          <table id="tableStock" class="w-full table-auto">
             <caption
               style="
                 text-align: center;
@@ -256,7 +256,6 @@
             <thead class="bg--200 py-5">
               <tr class="bg-gray-500">
                 <th
-                  scope="col"
                   class="
                     px-6
                     py-3
@@ -270,7 +269,6 @@
                 </th>
                 <th
                   style="position: relative; left: -5px"
-                  scope="col"
                   class="
                     px-6
                     py-3
@@ -284,7 +282,6 @@
                 </th>
                 <th
                   style="position: relative; left: -5px"
-                  scope="col"
                   class="
                     px-6
                     py-3
@@ -297,7 +294,6 @@
                   Stock Symbol
                 </th>
                 <th
-                  scope="col"
                   class="
                     px-6
                     py-3
@@ -310,7 +306,6 @@
                   AskMin PRICE
                 </th>
                 <th
-                  scope="col"
                   class="
                     px-6
                     py-3
@@ -323,7 +318,6 @@
                   AskMax PRICE
                 </th>
                 <th
-                  scope="col"
                   class="
                     px-6
                     py-3
@@ -336,7 +330,6 @@
                   BidMin PRICE
                 </th>
                 <th
-                  scope="col"
                   class="
                     px-6
                     py-3
@@ -349,7 +342,6 @@
                   BidMax PRICE
                 </th>
                 <th
-                  scope="col"
                   class="
                     px-6
                     py-3
@@ -366,7 +358,8 @@
           </table>
         </div>
         <div class="w-full overflow-y-auto" style="height: 440px">
-          <table class="w-full table-auto">
+          <table id = "tableStockValues" class="w-full table-auto">
+            <caption></caption>
             <thead class="bg-gray-300 py-5">
               <tr
                 class="overflow-y-auto"
@@ -375,7 +368,6 @@
               >
                 <td
                   style="position: sticky"
-                  scope="col"
                   class="
                     text-center
                     px-6
@@ -391,7 +383,6 @@
                 </td>
                 <td
                   style="position: sticky; left: 120px; width: 50px"
-                  scope="col"
                   class="
                     px-6
                     py-3
@@ -406,7 +397,6 @@
                 </td>
                 <td
                   style="position: sticky; left: 0px"
-                  scope="col"
                   class="
                     px-6
                     py-3
@@ -421,7 +411,6 @@
                 </td>
                 <span
                   style="position: sticky; left: 350px"
-                  scope="col"
                   class="
                     px-6
                     py-3
@@ -443,7 +432,6 @@
                 </span>
                 <td
                   style="position: sticky; left: 570px"
-                  scope="col"
                   class="
                     px-6
                     py-3
@@ -465,7 +453,6 @@
                 </td>
                 <td
                   style="position: sticky; left: 730px"
-                  scope="col"
                   class="
                     px-6
                     py-3
@@ -487,7 +474,6 @@
                 </td>
                 <td
                   style="position: sticky; left: 882px"
-                  scope="col"
                   class="
                     px-6
                     py-3
@@ -646,7 +632,4 @@ export default {
   },
 };
 </script>
-<style>
-body {
-}
-</style>
+

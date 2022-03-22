@@ -141,28 +141,25 @@ import axios from "axios";
 
 export default {
   name: "Header",
-  
-   data(){
-     return{
+
+  data() {
+    return {
       openModal: false,
       authenticated: false,
-      user:[],
+      user: [],
       dollarBalance: "",
       infoLogin: [],
       name: "",
-      email: ""
-     }
-   },
+      email: "",
+    };
+  },
   async created() {
     this.getInfoLogin();
     await this.isAuthenticated();
     this.getInfoUser();
     this.claims = await this.$auth.getUser();
 
-
-
     // this.claims = await Object.entries(await this.$auth.getUser()).map(entry => ({ claim: entry[0], value: entry[1] }))
-
   },
   watch: {
     // Everytime the route changes, check for auth status
@@ -172,10 +169,11 @@ export default {
     async isAuthenticated() {
       this.authenticated = await this.$auth.isAuthenticated();
     },
-    async getInfoLogin(){
-      await Object.entries(await this.$auth.getUser()).map(entry => ({ claim: entry[0], value: entry[1] }))
-      
-
+    async getInfoLogin() {
+      await Object.entries(await this.$auth.getUser()).map((entry) => ({
+        claim: entry[0],
+        value: entry[1],
+      }));
     },
     async logout() {
       await this.$auth.signOut();
@@ -187,30 +185,25 @@ export default {
       const response = await axios.get("http://localhost:8088/user/1", {
         headers: { Authorization: "Bearer " + this.$auth.getAccessToken() },
       });
-      console.log(this.claims.name)
-      console.log(this.claims.email)
+      console.log(this.claims.name);
+      console.log(this.claims.email);
 
-      this.name = this.claims.name
-      this.email = this.claims.email
+      this.name = this.claims.name;
+      this.email = this.claims.email;
 
-      this.user = response.data
-      this.dollarBalance=this.user.dollarBalance
-    
-
+      this.user = response.data;
+      this.dollarBalance = this.user.dollarBalance;
     },
-    async openDepositWindow(){
-        this.openModal = !this.openModal;
-
+    async openDepositWindow() {
+      this.openModal = !this.openModal;
     },
     async deposit() {
       const body = {
         id: 1,
         amount: this.amount,
-
       };
+      var now = new Date();
       try {
-        var now = new Date();
-
         const response = await axios.put(
           "http://localhost:8088/user/deposit",
           body,
@@ -229,13 +222,11 @@ export default {
         console.log(body);
       }
     },
- 
   },
 };
 </script>
 
 <style>
-
 #Header {
   width: 1200;
   color: rgb(61, 13, 13);
